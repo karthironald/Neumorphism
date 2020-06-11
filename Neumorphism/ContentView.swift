@@ -47,24 +47,6 @@ struct ContentView: View {
             
             HStack(spacing: 40) {
                 // =========== 3 ===========
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fillAndFrame()
-                    .blur(radius: 15)
-                    .opacity(0.7)
-                    .darkShadow()
-                    .lightShadow()
-                    .overlay(
-                        Image(systemName: "3.circle.fill")
-                            .asOverlay()
-                    )
-                    .mask(
-                        RoundedRectangle(cornerRadius: cornerRadius)
-                            .fill(Color.red)
-                            .frame(width: 150, height: 150)
-                    )
-                
-                
-                // =========== 4 ===========
                 ZStack {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .fillAndFrame()
@@ -87,8 +69,30 @@ struct ContentView: View {
                 }
                 .mask(
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(Color.red)
-                        .frame(width: 170, height: 170)
+                )
+                
+                // =========== 4 ===========
+                ZStack {
+                    Circle()
+                        .fillAndFrame()
+                    Circle()
+                        .fill(Color("kMainBg"))
+                        .frame(width: 100, height: 100)
+                        .blur(radius: 10)
+                        .shadow(color: Color("kDarkShadow"), radius: 40, x: -18, y: -18)
+                        .shadow(color: Color("kLightShadow"), radius: 40, x: 18, y: 18)
+                    Circle()
+                        .fill(Color("kMainBg"))
+                        .frame(width: 80, height: 80)
+                        .shadow(color: Color("kLightShadow"), radius: 12, x: -10, y: -10)
+                        .shadow(color: Color("kDarkShadow"), radius: 12, x: 10, y: 10)
+                    .overlay(
+                        Image(systemName: "5.circle.fill")
+                            .asOverlay()
+                    )
+                }
+                .mask(
+                    Circle()
                 )
                 
             }
@@ -136,7 +140,7 @@ extension Image {
     func asOverlay() -> some View {
         self
             .resizable()
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             .aspectRatio(contentMode: .fit)
             .foregroundColor(.pink)
     }
