@@ -84,8 +84,8 @@ struct ContentView: View {
                     Circle()
                         .fill(Color("kMainBg"))
                         .frame(width: 80, height: 80)
-                        .shadow(color: Color("kLightShadow"), radius: 12, x: -10, y: -10)
-                        .shadow(color: Color("kDarkShadow"), radius: 12, x: 10, y: 10)
+                        .shadow(color: Color("kLightShadow"), radius: 12, x: -7, y: -7)
+                        .shadow(color: Color("kDarkShadow"), radius: 12, x: 7, y: 7)
                     .overlay(
                         Image(systemName: "5.circle.fill")
                             .asOverlay()
