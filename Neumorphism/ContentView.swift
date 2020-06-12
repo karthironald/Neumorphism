@@ -18,7 +18,7 @@ struct ContentView: View {
             HStack(spacing: 40) {
                 // =========== 1 ===========
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fillAndFrame()
+                    .fillAndFrame_150()
                     .darkShadow()
                     .lightShadow()
                     .overlay(
@@ -28,7 +28,7 @@ struct ContentView: View {
                 
                 // =========== 2 ===========
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fillAndFrame()
+                    .fillAndFrame_150()
                     .darkShadow()
                     .lightShadow()
                     .blur(radius: 5)
@@ -42,16 +42,14 @@ struct ContentView: View {
                 // =========== 3 ===========
                 ZStack {
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fillAndFrame()
+                        .fillAndFrame_150()
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(Color("kMainBg"))
-                        .frame(width: 135, height: 135)
+                        .fillAndFrame_135()
                         .blur(radius: 15)
                         .opacity(0.7)
                         .darkShadow()
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(Color("kMainBg"))
-                        .frame(width: 135, height: 135)
+                        .fillAndFrame_135()
                         .blur(radius: 15)
                         .opacity(0.7)
                         .lightShadow()
@@ -67,16 +65,14 @@ struct ContentView: View {
                 // =========== 4 ===========
                 ZStack {
                     Circle()
-                        .fillAndFrame()
+                        .fillAndFrame_150()
                     Circle()
-                        .fill(Color("kMainBg"))
-                        .frame(width: 100, height: 100)
+                        .fillAndFrame_100()
                         .blur(radius: 10)
                         .shadow(color: Color("kDarkShadow"), radius: 40, x: -18, y: -18)
                         .shadow(color: Color("kLightShadow"), radius: 40, x: 18, y: 18)
                     Circle()
-                        .fill(Color("kMainBg"))
-                        .frame(width: 80, height: 80)
+                        .fillAndFrame_80()
                         .shadow(color: Color("kLightShadow"), radius: 12, x: -7, y: -7)
                         .shadow(color: Color("kDarkShadow"), radius: 12, x: 7, y: 7)
                     .overlay(
@@ -98,21 +94,46 @@ struct ContentView: View {
     
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
 
+
+// MARK: - Shape Extensions
+
 extension Shape {
     
-    func fillAndFrame() -> some View {
+    func fillAndFrame_80() -> some View {
+        self
+            .fill(Color("kMainBg"))
+            .frame(width: 80, height: 80)
+    }
+    
+    func fillAndFrame_100() -> some View {
+        self
+            .fill(Color("kMainBg"))
+            .frame(width: 100, height: 100)
+    }
+    
+    func fillAndFrame_135() -> some View {
+        self
+            .fill(Color("kMainBg"))
+            .frame(width: 135, height: 135)
+    }
+    
+    func fillAndFrame_150() -> some View {
         self
             .fill(Color("kMainBg"))
             .frame(width: 150, height: 150)
     }
     
 }
+
+
+// MARK: - View Extensions
 
 extension View {
     
@@ -127,6 +148,9 @@ extension View {
     }
     
 }
+
+
+// MARK: - Image Extensions
 
 extension Image {
     
