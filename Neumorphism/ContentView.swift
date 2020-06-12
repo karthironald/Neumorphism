@@ -15,13 +15,6 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 40) {
             
-            // =========== Heading ===========
-            Text("Neumorphism!!")
-                .font(Font.system(.title, design: .rounded))
-                .bold()
-                .foregroundColor(.pink)
-                .padding()
-            
             HStack(spacing: 40) {
                 // =========== 1 ===========
                 RoundedRectangle(cornerRadius: cornerRadius)
@@ -63,7 +56,7 @@ struct ContentView: View {
                         .opacity(0.7)
                         .lightShadow()
                     .overlay(
-                        Image(systemName: "4.circle.fill")
+                        Image(systemName: "3.circle.fill")
                         .asOverlay()
                     )
                 }
@@ -87,7 +80,7 @@ struct ContentView: View {
                         .shadow(color: Color("kLightShadow"), radius: 12, x: -7, y: -7)
                         .shadow(color: Color("kDarkShadow"), radius: 12, x: 7, y: 7)
                     .overlay(
-                        Image(systemName: "5.circle.fill")
+                        Image(systemName: "4.circle.fill")
                             .asOverlay()
                     )
                 }
