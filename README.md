@@ -1,3 +1,3 @@
 # Neumorphism
 
-[Image](Neumorphism-Banner.png)
+[Image](Neumorphism Banner.png)
